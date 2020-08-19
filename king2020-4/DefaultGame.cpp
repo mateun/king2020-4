@@ -38,10 +38,10 @@ void DefaultGame::start() {
 			// TODO: store SDL events in vector to be passed on to the current game state update method
 		}
 
-		SDL_SetRenderDrawColor(_sdlRenderer, 0xab0, 0x00, 0x00, 0x00);
-		SDL_RenderClear(_sdlRenderer);
-		//SDL_RenderCopy(renderer, texture, NULL, NULL);
-		SDL_RenderPresent(_sdlRenderer);
+		_gameStates[0]->update(1);
+		_gameStates[0]->render(_sdlRenderer);
+
+		
 	}
 
 }
