@@ -1,18 +1,16 @@
-#include "stdio.h"
-#include <SDL.h>
+#include <vector>
+#include "default_game.h"
+#include "splash_gamestate.h"
 
 
 
 
 int main(int argc, char** args) {
-	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-		SDL_Log("error initializing SDL, quitting.");
-	}
-
-	SDL_Log("SDL initialized!");
-
-
-	SDL_Quit();
+	
+	DefaultGame game({ new SplashGamestate() }, 800, 600, false);
+	game.start();
+	game.stop();
+	
 
 	return 0;
 }
