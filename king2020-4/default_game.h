@@ -6,10 +6,11 @@
 class DefaultGame : public Game {
 public:
 
-	DefaultGame(std::vector<Gamestate*> gameStates, int screenWidth, int screenHeight, bool fullScreen);
+	DefaultGame(int screenWidth, int screenHeight, bool fullScreen);
 
 	void start() override;
 	void stop() override;
+	void moveToNextGamestate() override;
 
 
 private:
@@ -17,6 +18,7 @@ private:
 	int _screenHeight;
 	bool _fullScreen;
 	bool _running;
+	int _gameStateIndex = 0;
 	SDL_Renderer* _sdlRenderer;
 	SDL_Window* _sdlWindow;
 };

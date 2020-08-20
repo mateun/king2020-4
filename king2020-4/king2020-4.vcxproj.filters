@@ -30,6 +30,9 @@
     <ClCompile Include="DefaultGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuGamestate.cpp">
+      <Filter>Source Files\Gamestates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gamestate.h">
@@ -43,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="default_game.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main_menu_gamestate.h">
+      <Filter>Header Files\Gamestates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
