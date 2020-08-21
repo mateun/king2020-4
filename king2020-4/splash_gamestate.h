@@ -12,4 +12,8 @@ public:
 	void update(float dt, std::vector<SDL_Event>& frameEvents) override;
 	void render(SDL_Renderer* renderer) override;
 	void teardown() override;
+
+
+private:
+	int frame = 0;
 };

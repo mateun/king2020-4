@@ -77,8 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Projects\C++\libs\SDL2_0_8_VS\SDL2-2.0.8\include;D:\projects\c++\libs\SDL2-devel-2.0.12-VC\SDL2-2.0.12\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>E:\Projects\C++\libs\SDL2_0_8_VS\SDL2-2.0.8\lib\x64;D:\projects\c++\libs\SDL2-devel-2.0.12-VC\SDL2-2.0.12\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <IncludePath>E:\Projects\C++\libs\SDL2_ttf-devel-2.0.15-VC\SDL2_ttf-2.0.15\include;E:\Projects\C++\libs\SDL2_0_8_VS\SDL2-2.0.8\include;D:\projects\c++\libs\SDL2-devel-2.0.12-VC\SDL2-2.0.12\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>E:\Projects\C++\libs\SDL2_ttf-devel-2.0.15-VC\SDL2_ttf-2.0.15\lib\x64;E:\Projects\C++\libs\SDL2_0_8_VS\SDL2-2.0.8\lib\x64;D:\projects\c++\libs\SDL2-devel-2.0.12-VC\SDL2-2.0.12\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -109,7 +109,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2_ttf.lib;SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DefaultGame.cpp" />
+    <ClCompile Include="LevelGamestate.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuGamestate.cpp" />
     <ClCompile Include="SplashGamestate.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="default_game.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gamestate.h" />
+    <ClInclude Include="level_state.h" />
     <ClInclude Include="main_menu_gamestate.h" />
     <ClInclude Include="splash_gamestate.h" />
   </ItemGroup>

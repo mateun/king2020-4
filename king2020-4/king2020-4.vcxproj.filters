@@ -33,6 +33,9 @@
     <ClCompile Include="MainMenuGamestate.cpp">
       <Filter>Source Files\Gamestates</Filter>
     </ClCompile>
+    <ClCompile Include="LevelGamestate.cpp">
+      <Filter>Source Files\Gamestates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gamestate.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main_menu_gamestate.h">
+      <Filter>Header Files\Gamestates</Filter>
+    </ClInclude>
+    <ClInclude Include="level_state.h">
       <Filter>Header Files\Gamestates</Filter>
     </ClInclude>
   </ItemGroup>

@@ -25,5 +25,7 @@ void MainMenuGamestate::render(SDL_Renderer* renderer) {
 	SDL_SetRenderDrawColor(renderer, 0xab0, 0xcc, 0xd0, 0x00);
 	SDL_RenderClear(renderer);
 	//SDL_RenderCopy(renderer, texture, NULL, NULL);
+
 	SDL_RenderPresent(renderer);
+	
 }

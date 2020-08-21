@@ -3,7 +3,6 @@
 
 void SplashGamestate::init() {
 
-
 }
 
 void SplashGamestate::update(float deltaTime, std::vector<SDL_Event>& frameEvents) {
@@ -21,6 +20,8 @@ void SplashGamestate::update(float deltaTime, std::vector<SDL_Event>& frameEvent
 
 	}
 
+	_game.printToConsole("frame: " + std::to_string(frame++));
+
 }
 
 
@@ -28,6 +29,8 @@ void SplashGamestate::render(SDL_Renderer* renderer) {
 	SDL_SetRenderDrawColor(renderer, 0xab0, 0x00, 0x00, 0x00);
 	SDL_RenderClear(renderer);
 	//SDL_RenderCopy(renderer, texture, NULL, NULL);
+
+	_game.renderConsole();
 	SDL_RenderPresent(renderer);
 }
 
