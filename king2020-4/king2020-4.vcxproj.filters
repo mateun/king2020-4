@@ -36,6 +36,9 @@
     <ClCompile Include="LevelGamestate.cpp">
       <Filter>Source Files\Gamestates</Filter>
     </ClCompile>
+    <ClCompile Include="TextField.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gamestate.h">
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="level_state.h">
       <Filter>Header Files\Gamestates</Filter>
+    </ClInclude>
+    <ClInclude Include="textfield.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

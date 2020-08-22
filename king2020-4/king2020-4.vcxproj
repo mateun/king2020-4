@@ -150,6 +150,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuGamestate.cpp" />
     <ClCompile Include="SplashGamestate.cpp" />
+    <ClCompile Include="TextField.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="default_game.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="level_state.h" />
     <ClInclude Include="main_menu_gamestate.h" />
     <ClInclude Include="splash_gamestate.h" />
+    <ClInclude Include="textfield.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,7 +2,7 @@
 #include <SDL.h>
 
 void SplashGamestate::init() {
-
+	_textfield = new Textfield(50, 50, 200, 100);
 }
 
 void SplashGamestate::update(float deltaTime, std::vector<SDL_Event>& frameEvents) {
@@ -20,7 +20,7 @@ void SplashGamestate::update(float deltaTime, std::vector<SDL_Event>& frameEvent
 
 	}
 
-	_game.printToConsole("frame: " + std::to_string(frame++));
+	_textfield->addTextLine("frame: " + std::to_string(frame++));
 
 }
 
@@ -30,7 +30,7 @@ void SplashGamestate::render(SDL_Renderer* renderer) {
 	SDL_RenderClear(renderer);
 	//SDL_RenderCopy(renderer, texture, NULL, NULL);
 
-	_game.renderConsole();
+	_textfield->render(renderer);
 	SDL_RenderPresent(renderer);
 }
 

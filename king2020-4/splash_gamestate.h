@@ -1,5 +1,6 @@
 #pragma once
 #include "gamestate.h"
+#include "textfield.h"
 #include <vector>
 
 class SDL_Renderer;
@@ -16,4 +17,5 @@ public:
 
 private:
 	int frame = 0;
+	Textfield* _textfield = nullptr;
 };
