@@ -15,11 +15,11 @@ struct House {
 	int _worldY;
 	int _hp;
 
-	SDL_Rect sourceRect() {
+	SDL_Rect screenSourceRect() {
 		return { 0, 0, 64, 64 };
 	}
 	
-	SDL_Rect targetRect(int camX, int camY) {
+	SDL_Rect screenTargetRect(int camX, int camY) {
 		return { _worldX - camX, _worldY - camY, 64, 64 };
 	}
 
@@ -103,7 +103,7 @@ void LevelState::render(SDL_Renderer* renderer) {
 	SDL_RenderClear(renderer);
 	for (auto h : houses) {
 		
-		SDL_RenderCopy(renderer, houseTexture, &h->sourceRect(), &h->targetRect(camX, camY));
+		SDL_RenderCopy(renderer, houseTexture, &h->screenSourceRect(), &h->screenTargetRect(camX, camY));
 	}
 	SDL_RenderPresent(renderer);
 
