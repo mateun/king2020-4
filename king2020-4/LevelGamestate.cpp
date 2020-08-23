@@ -8,7 +8,7 @@ class House;
 
 static std::vector<House*> houses;
 static SDL_Texture* houseTexture;
-
+static int camX = 0, camY = 0;
 
 struct House {
 	int _worldX;
@@ -19,9 +19,11 @@ struct House {
 		return { 0, 0, 64, 64 };
 	}
 	
-	SDL_Rect worldRect() {
-		return { _worldX, _worldY, 64, 64 };
+	SDL_Rect targetRect(int camX, int camY) {
+		return { _worldX - camX, _worldY - camY, 64, 64 };
 	}
+
+
 };
 
 bool isBuildingAllowed(int worldX, int worldY) {
@@ -37,18 +39,43 @@ void createHouse(int worldX, int worldY) {
 	
 }
 
+void getWorldCoordinates(int& wx, int& wy, int screenX, int screenY, int camX, int camY) {
+	wx = screenX + camX;
+	wy = screenY + camY;
+}
+
+void getScreenCoordinates(int& sx, int& sy, int worldX, int worldY, int camX, int camY) {
+	sx = worldX - camX;
+	sy = worldY - camY;
+}
+
+
 void processInputEvents(std::vector<SDL_Event>& frameEvents) {
 	for (auto e : frameEvents) {
 		switch (e.type) {
 		case SDL_MOUSEBUTTONDOWN:
 			SDL_Log("mouse down in level state.");
-			int x, y;
-			SDL_GetMouseState(&x, &y);
-			if (isBuildingAllowed(x, y)) {
-				createHouse(x, y);
+			int screenX, screenY;
+			SDL_GetMouseState(&screenX, &screenY);
+			int wx, wy;
+			getWorldCoordinates(wx, wy, screenX, screenY, camX, camY);
+			if (isBuildingAllowed(wx, wy)) {
+				createHouse(wx, wy);
 			}
 			break;
 		}
+		
+	}
+
+
+	const Uint8* state = SDL_GetKeyboardState(NULL);
+	if (state[SDL_SCANCODE_LEFT]) {
+		printf("<LEFT> is pressed.\n");
+		camX -= 1;
+	}
+	if (state[SDL_SCANCODE_RIGHT] ) {
+		printf("<RIGHT> is pressed.\n");
+		camX += 1;
 	}
 
 }
@@ -76,7 +103,7 @@ void LevelState::render(SDL_Renderer* renderer) {
 	SDL_RenderClear(renderer);
 	for (auto h : houses) {
 		
-		SDL_RenderCopy(renderer, houseTexture, &h->sourceRect(), &h->worldRect());
+		SDL_RenderCopy(renderer, houseTexture, &h->sourceRect(), &h->targetRect(camX, camY));
 	}
 	SDL_RenderPresent(renderer);
 
