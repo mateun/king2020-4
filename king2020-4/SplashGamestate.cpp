@@ -1,5 +1,6 @@
 #include "splash_gamestate.h"
 #include <SDL.h>
+#include "default_game.h"
 
 void SplashGamestate::init() {
 	_textfield = new Textfield(50, 50, 200, 100);

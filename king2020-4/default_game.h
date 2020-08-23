@@ -15,6 +15,7 @@ public:
 	void start() override;
 	void stop() override;
 	void moveToNextGamestate() override;
+	SDL_Renderer* getRenderer() { return _sdlRenderer; };
 	
 
 private:

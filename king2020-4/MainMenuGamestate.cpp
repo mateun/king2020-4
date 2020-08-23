@@ -1,4 +1,5 @@
 #include "main_menu_gamestate.h"
+#include "default_game.h"
 
 void MainMenuGamestate::init() {
 	SDL_Log("In init method of MainMenuGameState.");
