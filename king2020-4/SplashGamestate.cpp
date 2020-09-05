@@ -26,13 +26,13 @@ void SplashGamestate::update(float deltaTime, std::vector<SDL_Event>& frameEvent
 }
 
 
-void SplashGamestate::render(SDL_Renderer* renderer) {
-	SDL_SetRenderDrawColor(renderer, 0xab0, 0x00, 0x00, 0x00);
-	SDL_RenderClear(renderer);
+void SplashGamestate::render(float dt) {
+	SDL_SetRenderDrawColor(_sdlRenderer, 0xab0, 0x00, 0x00, 0x00);
+	SDL_RenderClear(_sdlRenderer);
 	//SDL_RenderCopy(renderer, texture, NULL, NULL);
 
-	_textfield->render(renderer);
-	SDL_RenderPresent(renderer);
+	_textfield->render(_sdlRenderer);
+	SDL_RenderPresent(_sdlRenderer);
 }
 
 void SplashGamestate::teardown() {

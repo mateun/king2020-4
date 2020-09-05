@@ -67,7 +67,6 @@ void processInputEvents(std::vector<SDL_Event>& frameEvents) {
 		
 	}
 
-
 	const Uint8* state = SDL_GetKeyboardState(NULL);
 	if (state[SDL_SCANCODE_LEFT]) {
 		printf("<LEFT> is pressed.\n");
@@ -84,7 +83,7 @@ void processInputEvents(std::vector<SDL_Event>& frameEvents) {
 void LevelState::init() {
 	SDL_Log("in init of level state.");
 	SDL_Surface* surface = SDL_LoadBMP("E:/Projects/C++/king2020-4/assets/textures/house1.bmp");
-	houseTexture = SDL_CreateTextureFromSurface(_game.getRenderer(), surface);
+	houseTexture = SDL_CreateTextureFromSurface(_sdlRenderer, surface);
 	SDL_FreeSurface(surface);
 }
 
@@ -98,14 +97,14 @@ void LevelState::update(float dt, std::vector<SDL_Event>& frameEvents) {
 
 }
 
-void LevelState::render(SDL_Renderer* renderer) {
-	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
-	SDL_RenderClear(renderer);
+void LevelState::render(float dt) {
+	SDL_SetRenderDrawColor(_sdlRenderer, 0x00, 0x00, 0x00, 0x00);
+	SDL_RenderClear(_sdlRenderer);
 	for (auto h : houses) {
 		
-		SDL_RenderCopy(renderer, houseTexture, &h->screenSourceRect(), &h->screenTargetRect(camX, camY));
+		SDL_RenderCopy(_sdlRenderer, houseTexture, &h->screenSourceRect(), &h->screenTargetRect(camX, camY));
 	}
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(_sdlRenderer);
 
 }
 

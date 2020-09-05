@@ -22,11 +22,11 @@ void MainMenuGamestate::update(float dt, std::vector<SDL_Event>& frameEvents) {
 	}
 }
 
-void MainMenuGamestate::render(SDL_Renderer* renderer) {
-	SDL_SetRenderDrawColor(renderer, 0xab0, 0xcc, 0xd0, 0x00);
-	SDL_RenderClear(renderer);
+void MainMenuGamestate::render(float dt) {
+	SDL_SetRenderDrawColor(_sdlRenderer, 0xab0, 0xcc, 0xd0, 0x00);
+	SDL_RenderClear(_sdlRenderer);
 	//SDL_RenderCopy(renderer, texture, NULL, NULL);
 
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(_sdlRenderer);
 	
 }

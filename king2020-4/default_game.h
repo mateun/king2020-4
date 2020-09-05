@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 
+
 class DefaultGame : public Game {
 public:
 
@@ -15,8 +16,7 @@ public:
 	void start() override;
 	void stop() override;
 	void moveToNextGamestate() override;
-	SDL_Renderer* getRenderer() { return _sdlRenderer; };
-	
+	void swap() override;
 
 private:
 	int _screenWidth;
@@ -24,7 +24,7 @@ private:
 	bool _fullScreen;
 	bool _running;
 	int _gameStateIndex = 0;
-	
-	SDL_Renderer* _sdlRenderer;
+	SDL_GLContext _glContext;
+
 	SDL_Window* _sdlWindow;
 };

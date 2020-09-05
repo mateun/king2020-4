@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Gamestates">
       <UniqueIdentifier>{649ca6fb-ed45-4b57-9b5e-4bd6c801619d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\glew">
+      <UniqueIdentifier>{97562fd2-66bd-4b1e-b26a-a5bb2fcccef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\glew">
+      <UniqueIdentifier>{f61b84c1-a8ec-4392-bf1c-36137f1f46c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +44,12 @@
     </ClCompile>
     <ClCompile Include="TextField.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_splash_state.cpp">
+      <Filter>Source Files\Gamestates</Filter>
+    </ClCompile>
+    <ClCompile Include="glew\glew.c">
+      <Filter>Source Files\glew</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +73,15 @@
     </ClInclude>
     <ClInclude Include="textfield.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gl_splash_state.h">
+      <Filter>Header Files\Gamestates</Filter>
+    </ClInclude>
+    <ClInclude Include="glew\GL\glew.h">
+      <Filter>Header Files\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="glew\GL\wglew.h">
+      <Filter>Header Files\glew</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

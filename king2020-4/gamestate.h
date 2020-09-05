@@ -2,17 +2,19 @@
 #include <SDL.h>
 #include <vector>
 
-class DefaultGame;
+class Game;
 
 class Gamestate {
 public:
-	Gamestate(DefaultGame& game) : _game(game) {}
+	Gamestate(Game& game) : _game(game) {}
 	virtual void init() = 0;
 	virtual void update(float dt, std::vector<SDL_Event>& frameEvents) = 0;
-	virtual void render(SDL_Renderer* renderer) = 0;
+	virtual void render(float dt) = 0;
 	virtual void teardown() = 0;
 
 protected: 
-	DefaultGame& _game;
+	Game& _game;
 
 };
+
+

@@ -1,13 +1,14 @@
 #pragma once
+
 #include "gamestate.h"
+#include <vector>
+#include <vector>
 
-class SDL_Renderer;
-class Game;
 
-class MainMenuGamestate : public Gamestate {
+class GSSplashGL : public Gamestate {
 
 public:
-	MainMenuGamestate(Game& game, SDL_Renderer* renderer) : Gamestate(game), _sdlRenderer(renderer) {}
+	GSSplashGL(Game& game) : Gamestate(game) {}
 	void init() override;
 	void update(float dt, std::vector<SDL_Event>& frameEvents) override;
 	void render(float dt) override;
@@ -15,5 +16,6 @@ public:
 
 
 private:
-	SDL_Renderer* _sdlRenderer;
+	int frame = 0;
+
 };

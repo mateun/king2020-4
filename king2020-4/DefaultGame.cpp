@@ -1,8 +1,8 @@
 #include "game.h"
 #include "default_game.h"
 #include <SDL.h>
-#include <SDL_ttf.h>
 #include <algorithm>
+#include <GL/glew.h>
 
 DefaultGame::DefaultGame( int screenWidth, int screenHeight, bool fullScreen) 
 	: _screenWidth(screenWidth), _screenHeight(screenHeight), _fullScreen(fullScreen)
@@ -14,21 +14,16 @@ DefaultGame::DefaultGame( int screenWidth, int screenHeight, bool fullScreen)
 
 	SDL_Log("SDL initialized!");
 
+	_sdlWindow = SDL_CreateWindow("default game window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, _screenWidth, _screenHeight, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+	_glContext = SDL_GL_CreateContext(_sdlWindow);
+
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
 	{
-		if (TTF_Init() == -1) {
-			SDL_Log("TTF init failed. ");
-			exit(11);
-		}
-
-		
-
+		/* Problem: glewInit failed, something is seriously wrong. */
+		SDL_Log("Error: %s\n", glewGetErrorString(err));
+		exit(100);
 	}
-
-	_sdlWindow = SDL_CreateWindow("default game window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, _screenWidth, _screenHeight, SDL_WINDOW_SHOWN);
-	_sdlRenderer = SDL_CreateRenderer(_sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
-	//deactivateConsole();
-
 }
 
 void DefaultGame::start() {
@@ -53,7 +48,7 @@ void DefaultGame::start() {
 		}
 
 		_gameStates[_gameStateIndex]->update(1, frameEvents);
-		_gameStates[_gameStateIndex]->render(_sdlRenderer);
+		_gameStates[_gameStateIndex]->render(1);
 
 	}
 
@@ -77,7 +72,11 @@ void DefaultGame::stop() {
 	SDL_Log("Ending the default game.");
 	SDL_Log("Stopping SDL.");
 
-	TTF_Quit();
+	SDL_GL_DeleteContext(_glContext);
 	SDL_Quit();
 	_running = false;
+}
+
+void DefaultGame::swap() {
+	SDL_GL_SwapWindow(_sdlWindow);
 }
